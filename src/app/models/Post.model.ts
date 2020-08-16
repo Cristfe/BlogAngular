@@ -2,8 +2,8 @@ export class Post {
     titulo: string;
     texto: string;
     autor: string;
-    imagen: URL;
-    fecha: Date;
+    imagen: string;
+    fecha: number;
     categoria: string;
 
     constructor(pTitulo, pTexto, pAutor, pImagen, pFecha, pCategoria) {

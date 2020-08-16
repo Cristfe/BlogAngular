@@ -1,1 +1,54 @@
-<p>formulario works!</p>
+<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-group">
+        <label>titulo</label>
+        <input type="text" class="form-control" formControlName="titulo">
+        <p class="error" *ngIf="form.controls.titulo.errors && form.controls.titulo.touched">
+            El campo titulo es requerido
+        </p>
+    </div>
+    <div class="form-group">
+        <label>Texto</label>
+        <input type="text" class="form-control" formControlName="texto">
+        <p class="error" *ngIf="form.controls.texto.errors?.required && form.controls.texto.touched">
+            El campo texto es obligatorio
+        </p>
+        <p class="error" *ngIf="form.controls.texto.errors?.maxlength && form.controls.texto.touched">
+            El campo texto debe tener una longitud máxima de {{ form.controls.texto.errors.maxlength.requiredLength }} caracteres
+        </p>
+    </div>
+    <div class="form-group">
+        <label>Autor</label>
+        <input type="text" class="form-control" formControlName="autor">
+        <p class="error" *ngIf="form.controls.autor.errors?.autorValidator && form.controls.autor.touched">
+            El valor de la autor debe estar entre {{form.controls.autor.errors.autorValidator.min}} e {{form.controls.autor.errors.autorValidator.max}}
+        </p>
+    </div>
+    <div class="form-group">
+        <label>Imagen</label>
+        <input type="image" class="form-control" formControlName="Imagen">
+    </div>
+    <div class="form-group">
+        <label>fecha</label>
+        <input type="text" class="form-control" formControlName="fecha">
+        <p class="error" *ngIf="form.controls.fecha.errors?.fechaValidator && form.controls.fecha.touched">
+            {{form.controls.fecha.errors.fechaValidator}}
+
+        </p>
+    </div>
+    <div class="form-group">
+        <label>Categoria</label>
+        <input type="categoria" class="form-control" formControlName="categoria">
+    </div>
+    <input type="submit" value="Enviar" [disabled]="!form.valid" class="btn btn-block btn-info" *ngIf="form.valid">
+</form>
+
+{{ form.value | json }}
+<div>
+    <h3>Propiedades del Formulario</h3>
+    <p>Valid: {{ form.valid }}</p>
+    <p>Invalid: {{ form.invalid }}</p>
+    <p>Pristine: {{ form.pristine }}</p>
+    <p>Dirty: {{ form.dirty }}</p>
+    <p>Touched: {{ form.touched }}</p>
+    <p>Untouched: {{ form.untouched }}</p>
+</div>

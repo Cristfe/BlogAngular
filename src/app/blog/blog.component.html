@@ -1,1 +1,9 @@
-<p>blog works!</p>
+<div class="posts">
+    <div class="post" *ngFor="let post of Blog" [routerLink]="['/blog']">
+        <h3>{{post.titulo}}</h3>
+        <h2>{{post.autor}}</h2>
+        <p>{{post.texto}}</p>
+        <img [src]="post.imagen" alt="">
+        <p>{{ post.categoria }} {{post.fecha}}</p>
+    </div>
+</div>

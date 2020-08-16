@@ -2,15 +2,15 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { BlogComponent } from './blog/blog.component';
 import { FormularioComponent } from './formulario/formulario.component';
+import { TemplateComponent } from './template/template.component';
+
 
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: '/blog' },
   { path: 'blog', component: BlogComponent },
   { path: 'new', component: FormularioComponent },
-
-
-  // { path: '**', component: HomeComponent }
+  { path: 'template', component: TemplateComponent },
   { path: '**', redirectTo: '/blog' }
 ];
 
