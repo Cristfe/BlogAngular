@@ -1,54 +1,27 @@
-<form [formGroup]="form" (ngSubmit)="onSubmit()" novalidate>
+<form #form="ngForm" (ngSubmit)="onSubmit(form.value)">
     <div class="form-group">
-        <label>titulo</label>
-        <input type="text" class="form-control" formControlName="titulo">
-        <p class="error" *ngIf="form.controls.titulo.errors && form.controls.titulo.touched">
-            El campo titulo es requerido
-        </p>
+        <label>Titulo</label>
+        <input type="text" name="titulo" class="form-control" ngModel>
     </div>
     <div class="form-group">
         <label>Texto</label>
-        <input type="text" class="form-control" formControlName="texto">
-        <p class="error" *ngIf="form.controls.texto.errors?.required && form.controls.texto.touched">
-            El campo texto es obligatorio
-        </p>
-        <p class="error" *ngIf="form.controls.texto.errors?.maxlength && form.controls.texto.touched">
-            El campo texto debe tener una longitud máxima de {{ form.controls.texto.errors.maxlength.requiredLength }} caracteres
-        </p>
+        <input type="text" name="texto" class="form-control" ngModel>
     </div>
     <div class="form-group">
         <label>Autor</label>
-        <input type="text" class="form-control" formControlName="autor">
-        <p class="error" *ngIf="form.controls.autor.errors?.autorValidator && form.controls.autor.touched">
-            El valor de la autor debe estar entre {{form.controls.autor.errors.autorValidator.min}} e {{form.controls.autor.errors.autorValidator.max}}
-        </p>
+        <input type="text" name="autor" class="form-control" ngModel>
     </div>
     <div class="form-group">
         <label>Imagen</label>
-        <input type="image" class="form-control" formControlName="Imagen">
+        <input type="text" name="imagen" class="form-control" ngModel>
     </div>
     <div class="form-group">
         <label>fecha</label>
-        <input type="text" class="form-control" formControlName="fecha">
-        <p class="error" *ngIf="form.controls.fecha.errors?.fechaValidator && form.controls.fecha.touched">
-            {{form.controls.fecha.errors.fechaValidator}}
-
-        </p>
+        <input type="text" name="fecha" class="form-control" ngModel>
     </div>
     <div class="form-group">
         <label>Categoria</label>
-        <input type="categoria" class="form-control" formControlName="categoria">
+        <input type="text" name="categoria" class="form-control" ngModel>
     </div>
-    <input type="submit" value="Enviar" [disabled]="!form.valid" class="btn btn-block btn-info" *ngIf="form.valid">
+    <input type="submit" value="Enviar" class="btn btn-primary btn-block">
 </form>
-
-{{ form.value | json }}
-<div>
-    <h3>Propiedades del Formulario</h3>
-    <p>Valid: {{ form.valid }}</p>
-    <p>Invalid: {{ form.invalid }}</p>
-    <p>Pristine: {{ form.pristine }}</p>
-    <p>Dirty: {{ form.dirty }}</p>
-    <p>Touched: {{ form.touched }}</p>
-    <p>Untouched: {{ form.untouched }}</p>
-</div>
