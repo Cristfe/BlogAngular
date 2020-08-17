@@ -1,1 +1,28 @@
-<router-outlet></router-outlet>
+<nav class="navbar navbar-expand-lg navbar-dark ">
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/blog']">Home <span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/new']">Post</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+<div class="container">
+
+</div>
+
+<div class="container text-center pb-xl-5">
+    <img src="http://citywallpaperhd.com/uploads/photo/original/60-gotham-city-abode-glorious-and-brave-superhero-bruce-wayne.jpg" class="img-fluid" style="position: absolute; right: 0; top: 0; z-index: -100; opacity: 0.9; width: 210vh; height: 200vh;">
+
+    <div class="row py-2">
+        <div class="col w-auto h-auto mx-auto">
+            <p class="text-justify">
+                <router-outlet></router-outlet>
+            </p>
+        </div>
+    </div>
+</div>

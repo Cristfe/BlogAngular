@@ -1,9 +1,18 @@
-<div class="posts">
-    <div class="post" *ngFor="let post of Blog" [routerLink]="['/blog']">
-        <h3>{{post.titulo}}</h3>
-        <h2>{{post.autor}}</h2>
-        <p>{{post.texto}}</p>
-        <img [src]="post.imagen" alt="">
-        <p>{{ post.categoria }} {{post.fecha}}</p>
+<div class=" row ">
+    <div class="posts col-md-12">
+        <div *ngFor="let post of this.Blog">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h2 class="card-title">{{post.titulo}}</h2>
+                    <img class="card-img-top" [src]="post.imagen" alt="" style="opacity: 30%;">
+                    <p class="card-text">{{post.texto}}</p>
+                </div>
+                <div class="card-footer ">
+                    <p>{{post.autor}}</p>
+                    {{post.fecha}}
+                </div>
+
+            </div>
+        </div>
     </div>
 </div>

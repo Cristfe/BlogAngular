@@ -1,0 +1,12 @@
+.navbar {
+    height: 80px;
+    width: 100%;
+    font-style: lemonade;
+    background-color: transparent;
+}
+
+.container {
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+}

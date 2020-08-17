@@ -23,8 +23,6 @@ export class BlogComponent implements OnInit {
   }
 
 
-
-
   getPosts() {
     this.servicioService.getAllPosts()
 
